@@ -11,12 +11,18 @@ function Phrase( content ) {
 
      // Return content processed for palindrome testing
      this.processedContent = function processedContent() {
-          return this.content.toLowerCase();
+          return this.letters().toLowerCase();
      }
 
      // Return only letters in the content.
      this.letters = function letters() {
-          return this.content;
+          let theLetters = [];
+          for ( let i = 0; i < this.content.length; i++ ) {
+               if ( this.content.charAt( i ).match( /[a-zA-Z]/ ) ) {
+                    theLetters.push( this.content.charAt( i ) );
+               }
+          }
+          return theLetters.join( "" );
      }
 
      // Return true for palindrome, false otherwise.
